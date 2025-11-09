@@ -3,28 +3,40 @@
 {% block title %}Patient{% endblock %}
 
 {% block body %}
-    <h1>Patient</h1>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                    <h1 class="text-2xl font-semibold text-gray-900">Patient Details</h1>
+                </div>
+                <div class="border-t border-gray-200">
+                    <dl>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">Id</dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ patient.id }}</dd>
+                        </div>
+                        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">Name</dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ patient.name }}</dd>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">Last Name</dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ patient.lastName }}</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ patient.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ patient.name }}</td>
-            </tr>
-            <tr>
-                <th>LastName</th>
-                <td>{{ patient.lastName }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_patient_index') }}">back to list</a>
-
-    <a href="{{ path('app_patient_edit', {'id': patient.id}) }}">edit</a>
-
-    {{ include('patient/_delete_form.html.twig') }}
+            <div class="mt-6 flex space-x-3">
+                <a href="{{ path('app_patient_index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                    Back to list
+                </a>
+                <a href="{{ path('app_patient_edit', {'id': patient.id}) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Edit
+                </a>
+                <div class="flex-grow"></div>
+                {{ include('patient/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

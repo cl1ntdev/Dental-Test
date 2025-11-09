@@ -1,4 +1,18 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'space-y-6'}}) }}
+    <div class="space-y-4">
+        {{ form_row(form.name, {
+            'attr': {'class': 'mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'},
+            'label_attr': {'class': 'block text-sm font-medium text-gray-700'}
+        }) }}
+        {{ form_row(form.lastName, {
+            'attr': {'class': 'mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'},
+            'label_attr': {'class': 'block text-sm font-medium text-gray-700'}
+        }) }}
+    </div>
+
+    <div class="flex justify-end">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            {{ button_label|default('Save') }}
+        </button>
+    </div>
 {{ form_end(form) }}

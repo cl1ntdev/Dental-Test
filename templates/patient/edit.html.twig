@@ -3,11 +3,23 @@
 {% block title %}Edit Patient{% endblock %}
 
 {% block body %}
-    <h1>Edit Patient</h1>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                    <h1 class="text-2xl font-semibold text-gray-900">Edit Patient</h1>
+                </div>
+                <div class="border-t border-gray-200 px-4 py-5 sm:p-6">
+                    {{ include('patient/_form.html.twig', {'button_label': 'Update'}) }}
+                </div>
+            </div>
 
-    {{ include('patient/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_patient_index') }}">back to list</a>
-
-    {{ include('patient/_delete_form.html.twig') }}
+            <div class="mt-6 flex justify-between">
+                <a href="{{ path('app_patient_index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                    Back to list
+                </a>
+                {{ include('patient/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
